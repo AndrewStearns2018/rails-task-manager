@@ -22,6 +22,8 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task.update(task_params)
+    redirect_to tasks_path
   end
 
   def destroy
