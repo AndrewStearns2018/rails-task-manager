@@ -1,0 +1,13 @@
+<div class="container">
+   <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+        <h1>This is a list of your tasks</h1>
+      <ul class="list-unstyled">
+        <% @tasks.each do |task| %>
+          <li><%= task.title %>
+          <em>Details:</em> <%= task.details %>
+          <em>Completed:</em> <%= task.completed %></li>
+        <% end %>
+      </ul>
+     </div>
+   </div>
