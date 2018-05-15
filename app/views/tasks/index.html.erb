@@ -1,12 +1,18 @@
-<div class="container">
+<div class="container" style="padding: 25px;">
    <div class="row">
      <div class="col-md-6 col-md-offset-3">
         <h1>This is a list of your tasks</h1>
       <ul class="list-unstyled">
         <% @tasks.each do |task| %>
-          <li><%= task.title %>
-          <em>Details:</em> <%= task.details %>
-          <em>Completed:</em> <%= task.completed %></li>
+          <li>
+            <%= link_to task.title, task_path(task) %>
+            <!-- The link_to takes the text of the link
+              and then it takes the path, which is named after the prefixe
+              of the routes we have for show. This takes the arguement task
+              and it figures out the id that we have set in the router.
+              Without an argument, it won't find an id after the /
+              of the router url -->
+          </li>
         <% end %>
       </ul>
      </div>
