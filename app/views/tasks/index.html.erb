@@ -5,6 +5,12 @@
       <ul class="list-unstyled">
         <% @tasks.each do |task| %>
           <li>
+            <%= link_to task_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do  %>
+              <i class="far fa-trash-alt"></i>
+              <!-- This do allows the icon to be inserted as the link-->
+            <% end %>
             <%= link_to task.title, task_path(task) %>
             <!-- The link_to takes the text of the link
               and then it takes the path, which is named after the prefixe

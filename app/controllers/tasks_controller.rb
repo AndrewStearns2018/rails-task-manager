@@ -23,10 +23,13 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
+    # We need to pass in what we are permitted to update.
     redirect_to tasks_path
   end
 
   def destroy
+    @task.destroy
+    redirect_to tasks_path
   end
 
   private
