@@ -8,6 +8,16 @@ class TasksController < ApplicationController
   def show
   end
 
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.create(task_params)
+    redirect_to tasks_path
+    # This redirects to tasks, which is the index path
+  end
+
   def edit
   end
 
@@ -18,6 +28,11 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def task_params
+    params.require(:task).permit(:title, :details)
+    # Here we are allowing params to take info from a post.
+  end
 
   def set_task
     @task = Task.find(params[:id])
